@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Posture Tracker</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script = src="./static/js/script.js"></script>
+    
+  </head>
+  <body onload="initCanvas()">
+    <div class="container">
+      <h1>Posture analyzer</h1>
+      <div class="nav-bar">
+        <a href="/"> Home </a>
+        <a href="new_user"> New User </a>
+        <a href="saved_data"> Saved Data </a>
+      </div>
+      <img src="{{ image_path }}" alt="Image with lines">
+
+      <table id="my-table">
+        <thead>
+          <tr>
+            <th class="table-left">Condition</th>
+            <th class="table-non-left">Strengthem</th>
+            <th>Stretch</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in issues.items() %}
+          <tr>
+            <td class="table-left">{{ key }}</td>
+            <td class="table-non-left">{{ value['weak'] }}</td>
+            <td class="table-non-left">{{ value['tight'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <form action="/save_user_upload" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="saved_image" value="{{ image_path }}">
+        <input type="hidden" name="issues" value="{{ issues }}">
+        <input type="hidden" name="angleDict" value="{{ angleDict }}">
+        <div class="form-display"></div>
+        <input type="hidden" name="coordinateJSON" value="">
+        <div class="button-container">
+          <input type="submit" value="Save" id="submitButton">
+        </div>
+      </form>
+    <footer>
+      <p>&copy; Devon Miller 2023</p>
+    </footer>
+    </div>
+  </body>
+</html>

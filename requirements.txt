@@ -1,0 +1,5 @@
+Flask==2.3.2
+google-cloud-datastore==2.7.1
+Pillow
+numpy
+matplotlib

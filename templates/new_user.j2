@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Posture Tracker</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    
+    <script src="./static/js/script.js"></script>
+    
+  </head>
+  <body onload="initCanvas()">
+    <div class="container">
+      <h1>Posture analyzer</h1>
+      <div class="nav-bar">
+        <a href="/"> Home </a>
+        <a href="new_user"> New User </a>
+        <a href="saved_data"> Saved Data </a>
+      </div>
+      <div class="upload-container">
+      <h5> Instructions </h5>
+      <p>Upload a picture of yourself or someone else standing in a profile view facing to the right as shown in the example. Clock on the picture at the ear, base of neck, upper back, low back., hip, knee and ankle then press submit. An example is shown of where to click to get accurate results <a href="#example_image">HERE</a>.</p>
+        <p>Upload a picture</p>
+        
+        <form action="/analyze" method="post" enctype="multipart/form-data" onsubmit="submitForm(event)">
+          <input type="file" id="image_input" accept="image/jpeg, image/png, image/jpg" name="image">
+          <div class="canvas-container">
+            <canvas id="display_canvas" width="500" height="500" onclick="toggleCheck(1)"></canvas>
+          </div>
+        </div>
+        <span id="parts_check_list">
+          <table>
+            <tr>
+              <th>Body Part</th>
+              <th>Clicked</th>
+            </tr>
+            <tr>
+              <td>Ear</td>
+              <td id="part1"></td>
+            </tr>
+            <tr>
+              <td>Base of Neck</td>
+              <td id="part2"></td>
+            </tr>
+            <tr>
+              <td>Upper Back</td>
+              <td id="part3"></td>
+            </tr>
+            <tr>
+              <td>Low Back</td>
+              <td id="part4"></td>
+            </tr>
+            <tr>
+              <td>Hip</td>
+              <td id="part5"></td>
+            </tr>
+            <tr>
+              <td>Knee</td>
+              <td id="part6"></td>
+            </tr>
+            <tr>
+              <td>Ankle</td>
+              <td id="part7"></td>
+            </tr>
+          </table>
+        </span>
+        <div class="button-container">
+          <div id="form-display"></div>
+          <input type="hidden" name="coordinateJSON" value="">
+          <input type="submit" value="Submit" id="submitButton">
+          <button type="button" onclick="removeLastCoordinate()">Back</button>
+        </div>
+      </form>
+    </div>
+    
+    <div class="image-container">
+      <img src="./static/images/person_standing_profile.png" alt="Example of where to draw lines" width="500" height="600" id="example_image">
+    </div>
+  <footer>
+      <p>&copy; Devon Miller 2023</p>
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Table Example</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script = src="./static/js/script.js"></script>
+  </head>
+  <body onload="initCanvas()">
+  <div class="container">
+    <h1>Posture analyzer</h1>
+    <div class="nav-bar">
+      <a href="/"> Home </a>
+      <a href="new_user"> New User </a>
+      <a href="saved_data"> Saved Data </a>
+    </div>
+   
+    {% for result in results %}
+    
+    
+    <table>
+    <p>{{result.date}}</p>
+   
+    <form action="/delete_result" method="POST">
+                <input type="hidden" name="data_id" value="{{ result.id }}">
+                <button type="submit" class="delete-button">Delete</button>
+              </form>
+      <thead>
+        <tr>
+          <th>Condition</th>
+          <th>Strengthem</th>
+          <th>Stretch</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, value in result.issues.items() %}
+        <tr>
+          <td>{{ key }}</td>
+          <td>{{ value.weak }}</td>
+          <td>{{ value.tight }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    {% endfor %}
+
+  <img src="{{ url_for('static', filename='graphs/neck_graph.png') }}" alt="Graph">
+  <img src="{{ url_for('static', filename='graphs/back_graph.png') }}" alt="Graph">
+  <img src="{{ url_for('static', filename='graphs/hip_graph.png') }}" alt="Graph">
+  
+</body>
+
+  <footer>
+      <p>&copy; Devon Miller 2023</p>
+  </footer>
+  </div>
+  </body>
+</html>
