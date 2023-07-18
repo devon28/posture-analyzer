@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Posture Tracker</title>
-    <link rel="stylesheet" href="./static/css/style.css">
-    <script = src="./static/js/script.js"></script>
-    
-  </head>
-  <body onload="initCanvas()">
-    <div class="container">
-      <h1>Posture analyzer</h1>
-      <div class="nav-bar">
-        <a href="/"> Home </a>
-        <a href="new_user"> New User </a>
-        <a href="saved_data"> Saved Data </a>
-      </div>
-      <img src="{{ image_path }}" alt="Image with lines">
+<!-- results.j2 -->
+{% extends "base.j2" %}
+
+{% block content %}
+    <img src="{{ image_path }}" alt="Image with lines">
 
       <table id="my-table">
         <thead>
@@ -45,9 +32,4 @@
           <input type="submit" value="Save" id="submitButton">
         </div>
       </form>
-    <footer>
-      <p>&copy; Devon Miller 2023</p>
-    </footer>
-    </div>
-  </body>
-</html>
+{% endblock %}

@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Posture Tracker</title>
-    <link rel="stylesheet" href="./static/css/style.css">
-    
-    <script src="./static/js/script.js"></script>
-    
-  </head>
-  <body onload="initCanvas()">
-    <div class="container">
-      <h1>Posture analyzer</h1>
-      <div class="nav-bar">
-        <a href="/"> Home </a>
-        <a href="new_user"> New User </a>
-        <a href="saved_data"> Saved Data </a>
-      </div>
-      <div class="upload-container">
+<!-- about.html -->
+{% extends "base.j2" %}
+
+{% block content %}
+    <div class="upload-container">
       <h5> Instructions </h5>
       <p>Upload a picture of yourself or someone else standing in a profile view facing to the right as shown in the example. Clock on the picture at the ear, base of neck, upper back, low back., hip, knee and ankle then press submit. An example is shown of where to click to get accurate results <a href="#example_image">HERE</a>.</p>
         <p>Upload a picture</p>
@@ -75,8 +61,4 @@
     <div class="image-container">
       <img src="./static/images/person_standing_profile.png" alt="Example of where to draw lines" width="500" height="600" id="example_image">
     </div>
-  <footer>
-      <p>&copy; Devon Miller 2023</p>
-  </footer>
-  </body>
-</html>
+{% endblock %}

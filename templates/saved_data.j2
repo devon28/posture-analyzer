@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Table Example</title>
-    <link rel="stylesheet" href="./static/css/style.css">
-    <script = src="./static/js/script.js"></script>
-  </head>
-  <body onload="initCanvas()">
-  <div class="container">
-    <h1>Posture analyzer</h1>
-    <div class="nav-bar">
-      <a href="/"> Home </a>
-      <a href="new_user"> New User </a>
-      <a href="saved_data"> Saved Data </a>
-    </div>
-   
+<!-- about.html -->
+{% extends "base.j2" %}
+
+{% block content %}
     {% for result in results %}
     
     
@@ -49,11 +36,6 @@
   <img src="{{ url_for('static', filename='graphs/back_graph.png') }}" alt="Graph">
   <img src="{{ url_for('static', filename='graphs/hip_graph.png') }}" alt="Graph">
   
-</body>
+{% endblock %}
 
-  <footer>
-      <p>&copy; Devon Miller 2023</p>
-  </footer>
-  </div>
-  </body>
-</html>
+

@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Posture Home</title>
-    <link rel="stylesheet" href="./static/css/style.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Posture analyzer</h1>
-      <div class="nav-bar">
-        <a href="/">Home</a>
-        <a href="new_user">New User</a>
-        <a href="saved_data">Saved Data</a>
-      </div>
-      <div id="home_items">
+<!-- home.j2 -->
+{% extends "base.j2" %}
+
+{% block content %}
+    <div id="home_items">
       <p>* Track posture changes</p>
       <p>* Track Improve your body</p>
       <p>* Feel your best</p>
       </div>
-    <footer>
-      <p>&copy; Devon Miller 2023</p>
-    </footer>
-    </div>
-  </body>
-</html>
+{% endblock %}
